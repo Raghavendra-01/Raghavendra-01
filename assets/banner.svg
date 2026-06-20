@@ -77,7 +77,7 @@
   <!-- main name block, styled like a schematic label plate -->
   <g transform="translate(600,150)" text-anchor="middle">
     <text y="-18" font-size="13" fill="#00FF9C" letter-spacing="6" filter="url(#softGlow)">// EMBEDDED SYSTEMS · IoT</text>
-    <text y="30" font-size="46" fill="#F2F5F3" font-weight="700" letter-spacing="1">MEDA SIVA SAI RAGHAVENDRA</text>
+    <text y="30" font-size="46" fill="#F2F5F3" font-weight="700" letter-spacing="1">MEDA SIVA SAI RAGHAVENDRA PRASAD</text>
     <text y="64" font-size="15" fill="#7A8B82" letter-spacing="3">B.TECH ECE  ·  ESP32 / ARDUINO  ·  CLOUD-CONNECTED HARDWARE</text>
   </g>
 
