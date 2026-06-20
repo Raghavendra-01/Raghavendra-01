@@ -1,0 +1,91 @@
+<svg viewBox="0 0 1200 320" xmlns="http://www.w3.org/2000/svg" font-family="'JetBrains Mono', 'Courier New', monospace">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00FF9C" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#00FF9C" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="traceFade" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00FF9C" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#00FF9C" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#00FF9C" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2.2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- background -->
+  <rect width="1200" height="320" fill="#0B0E0C"/>
+
+  <!-- faint PCB grid -->
+  <g stroke="#1A1F1C" stroke-width="1">
+    <path d="M0,40 H1200 M0,80 H1200 M0,120 H1200 M0,160 H1200 M0,200 H1200 M0,240 H1200 M0,280 H1200"/>
+    <path d="M60,0 V320 M180,0 V320 M300,0 V320 M420,0 V320 M540,0 V320 M660,0 V320 M780,0 V320 M900,0 V320 M1020,0 V320 M1140,0 V320"/>
+  </g>
+
+  <!-- ambient glow behind name -->
+  <ellipse cx="600" cy="120" rx="420" ry="140" fill="url(#glow)"/>
+
+  <!-- static base traces (silkscreen gray) -->
+  <g fill="none" stroke="#7A8B82" stroke-width="1.5" stroke-opacity="0.4">
+    <path d="M40,260 L160,260 L190,230 L420,230"/>
+    <path d="M1160,260 L1040,260 L1010,230 L780,230"/>
+    <path d="M40,60 L220,60 L250,90 L380,90"/>
+    <path d="M1160,60 L980,60 L950,90 L820,90"/>
+  </g>
+
+  <!-- animated signal traces (the signature element) -->
+  <g fill="none" stroke-width="2" filter="url(#softGlow)">
+    <path id="trace1" d="M40,260 L160,260 L190,230 L420,230" stroke="url(#traceFade)" stroke-dasharray="40 360" stroke-linecap="round">
+      <animate attributeName="stroke-dashoffset" from="400" to="0" dur="3.2s" repeatCount="indefinite"/>
+    </path>
+    <path id="trace2" d="M1160,260 L1040,260 L1010,230 L780,230" stroke="url(#traceFade)" stroke-dasharray="40 360" stroke-linecap="round">
+      <animate attributeName="stroke-dashoffset" from="0" to="400" dur="3.6s" repeatCount="indefinite"/>
+    </path>
+    <path id="trace3" d="M40,60 L220,60 L250,90 L380,90" stroke="url(#traceFade)" stroke-dasharray="30 280" stroke-linecap="round">
+      <animate attributeName="stroke-dashoffset" from="310" to="0" dur="2.8s" repeatCount="indefinite"/>
+    </path>
+    <path id="trace4" d="M1160,60 L980,60 L950,90 L820,90" stroke="url(#traceFade)" stroke-dasharray="30 280" stroke-linecap="round">
+      <animate attributeName="stroke-dashoffset" from="0" to="310" dur="3s" repeatCount="indefinite"/>
+    </path>
+  </g>
+
+  <!-- via nodes -->
+  <g fill="#00FF9C">
+    <circle cx="40" cy="260" r="3.5"/>
+    <circle cx="420" cy="230" r="3.5"><animate attributeName="r" values="3.5;5;3.5" dur="3.2s" repeatCount="indefinite"/></circle>
+    <circle cx="1160" cy="260" r="3.5"/>
+    <circle cx="780" cy="230" r="3.5"><animate attributeName="r" values="3.5;5;3.5" dur="3.6s" repeatCount="indefinite" begin="0.4s"/></circle>
+    <circle cx="40" cy="60" r="3.5"/>
+    <circle cx="380" cy="90" r="3.5"><animate attributeName="r" values="3.5;5;3.5" dur="2.8s" repeatCount="indefinite" begin="0.2s"/></circle>
+    <circle cx="1160" cy="60" r="3.5"/>
+    <circle cx="820" cy="90" r="3.5"><animate attributeName="r" values="3.5;5;3.5" dur="3s" repeatCount="indefinite" begin="0.6s"/></circle>
+  </g>
+
+  <!-- component label tags near edges -->
+  <g font-size="11" fill="#7A8B82" letter-spacing="2">
+    <text x="40" y="252">U1.ESP32</text>
+    <text x="1080" y="252" text-anchor="end">U2.SENSOR_ARRAY</text>
+    <text x="40" y="52">R1.CLOUD_IO</text>
+    <text x="1160" y="52" text-anchor="end">R2.RT_MONITOR</text>
+  </g>
+
+  <!-- main name block, styled like a schematic label plate -->
+  <g transform="translate(600,150)" text-anchor="middle">
+    <text y="-18" font-size="13" fill="#00FF9C" letter-spacing="6" filter="url(#softGlow)">// EMBEDDED SYSTEMS · IoT</text>
+    <text y="30" font-size="46" fill="#F2F5F3" font-weight="700" letter-spacing="1">MEDA SIVA SAI RAGHAVENDRA</text>
+    <text y="64" font-size="15" fill="#7A8B82" letter-spacing="3">B.TECH ECE  ·  ESP32 / ARDUINO  ·  CLOUD-CONNECTED HARDWARE</text>
+  </g>
+
+  <!-- corner ticks, like PCB fiducial markers -->
+  <g stroke="#00FF9C" stroke-width="2" stroke-opacity="0.7">
+    <path d="M16,16 L16,34 M16,16 L34,16"/>
+    <path d="M1184,16 L1184,34 M1184,16 L1166,16"/>
+    <path d="M16,304 L16,286 M16,304 L34,304"/>
+    <path d="M1184,304 L1184,286 M1184,304 L1166,304"/>
+  </g>
+</svg>
