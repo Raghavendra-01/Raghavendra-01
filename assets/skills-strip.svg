@@ -1,0 +1,64 @@
+<svg viewBox="0 0 1200 90" xmlns="http://www.w3.org/2000/svg" font-family="'JetBrains Mono', 'Courier New', monospace">
+  <defs>
+    <filter id="g2" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="1.4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="1200" height="90" fill="#0B0E0C"/>
+
+  <!-- connecting backbone trace -->
+  <line x1="20" y1="45" x2="1180" y2="45" stroke="#1A1F1C" stroke-width="2"/>
+  <line x1="20" y1="45" x2="1180" y2="45" stroke="#00FF9C" stroke-width="1" stroke-opacity="0.5" stroke-dasharray="6 10"/>
+
+  <!-- chip nodes: C, C++, Embedded C, Python, ESP32, Arduino, Flask, WebSockets -->
+  <g font-size="13" font-weight="600">
+    <!-- node template repeated -->
+    <g transform="translate(90,45)">
+      <circle r="4" fill="#00FF9C" filter="url(#g2)"/>
+      <rect x="-46" y="-34" width="92" height="22" rx="3" fill="#1A1F1C" stroke="#00FF9C" stroke-opacity="0.5"/>
+      <text x="0" y="-19" text-anchor="middle" fill="#F2F5F3">C / C++</text>
+    </g>
+    <g transform="translate(255,45)">
+      <circle r="4" fill="#00FF9C" filter="url(#g2)"/>
+      <rect x="-58" y="-34" width="116" height="22" rx="3" fill="#1A1F1C" stroke="#00FF9C" stroke-opacity="0.5"/>
+      <text x="0" y="-19" text-anchor="middle" fill="#F2F5F3">EMBEDDED C</text>
+    </g>
+    <g transform="translate(420,45)">
+      <circle r="4" fill="#00FF9C" filter="url(#g2)"/>
+      <rect x="-44" y="-34" width="88" height="22" rx="3" fill="#1A1F1C" stroke="#00FF9C" stroke-opacity="0.5"/>
+      <text x="0" y="-19" text-anchor="middle" fill="#F2F5F3">PYTHON</text>
+    </g>
+    <g transform="translate(580,45)">
+      <circle r="4" fill="#00FF9C" filter="url(#g2)"/>
+      <rect x="-40" y="-34" width="80" height="22" rx="3" fill="#1A1F1C" stroke="#00FF9C" stroke-opacity="0.5"/>
+      <text x="0" y="-19" text-anchor="middle" fill="#F2F5F3">ESP32</text>
+    </g>
+    <g transform="translate(730,45)">
+      <circle r="4" fill="#00FF9C" filter="url(#g2)"/>
+      <rect x="-48" y="-34" width="96" height="22" rx="3" fill="#1A1F1C" stroke="#00FF9C" stroke-opacity="0.5"/>
+      <text x="0" y="-19" text-anchor="middle" fill="#F2F5F3">ARDUINO</text>
+    </g>
+    <g transform="translate(890,45)">
+      <circle r="4" fill="#00FF9C" filter="url(#g2)"/>
+      <rect x="-38" y="-34" width="76" height="22" rx="3" fill="#1A1F1C" stroke="#00FF9C" stroke-opacity="0.5"/>
+      <text x="0" y="-19" text-anchor="middle" fill="#F2F5F3">FLASK</text>
+    </g>
+    <g transform="translate(1040,45)">
+      <circle r="4" fill="#00FF9C" filter="url(#g2)"/>
+      <rect x="-66" y="-34" width="132" height="22" rx="3" fill="#1A1F1C" stroke="#00FF9C" stroke-opacity="0.5"/>
+      <text x="0" y="-19" text-anchor="middle" fill="#F2F5F3" font-size="12">WEBSOCKETS</text>
+    </g>
+  </g>
+
+  <!-- node legs down to backbone -->
+  <g stroke="#00FF9C" stroke-opacity="0.5" stroke-width="1">
+    <line x1="90" y1="33" x2="90" y2="45"/>
+    <line x1="255" y1="33" x2="255" y2="45"/>
+    <line x1="420" y1="33" x2="420" y2="45"/>
+    <line x1="580" y1="33" x2="580" y2="45"/>
+    <line x1="730" y1="33" x2="730" y2="45"/>
+    <line x1="890" y1="33" x2="890" y2="45"/>
+    <line x1="1040" y1="33" x2="1040" y2="45"/>
+  </g>
+</svg>
